@@ -6,8 +6,8 @@ Description: This project is a Vue.js 3 and TailwindCSS-based template, ideal fo
 To clone the project, use the following commands:
 
 ```
-git clone https://github.com/yourusername/project-name.git
-cd project-name
+git clone https://github.com/ShahnozaAbdualimova/vue-template.git
+cd vue-template
 ```
 ### Requirements
 To run this project, you’ll need the following:
@@ -21,7 +21,7 @@ To install Node.js, visit the [official Node.js website](https://nodejs.org/).
 1. **Navigate to the project folder:**
 
    ```
-   cd project-name
+   cd vue-template
    ```
 2. **Install the necessary packages:**
 
@@ -31,7 +31,7 @@ To install Node.js, visit the [official Node.js website](https://nodejs.org/).
 3. **Run the project on a local server:**
 
    ```
-   npm run serve
+   npm run dev
    ```
 
 ### Useful Resources
