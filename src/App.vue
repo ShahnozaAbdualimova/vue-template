@@ -1,10 +1,11 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import Header from './components/Header.vue'
+import CMain from './components/common/CMain.vue';
+import Header from './layout/LHeader.vue'
 </script>
 
 <template>
-
+<Header></Header>
+<CMain/>
 </template>
 
 <style scoped>
