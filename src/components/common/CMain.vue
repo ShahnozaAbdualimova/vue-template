@@ -1,22 +1,44 @@
 <template>
-    <main class="mt-6">
-    <img class="absolute left-0 top-20" src="/images/main-bg-1.svg" alt="">
-    <div class="w-6/12 mx-auto mt-6 z-50">
-        <h1 class="text-center text-blue-200 text-7xl font-bold leading-[80px] mt-4">Top Quality Digital Products To Explore</h1>
-        <p>Get your blood tests delivered at let home collect sample from the victory of the managments that supplies 
-best design system guidelines ever.</p>
-        <button type="button"
-                class="py-4 px-8  rounded-full bg-red-100 text-white text-base font-medium leading-6 duration-200 ease-in hover:bg-red-100 hover:text-white">Get
-                Started</button>
+    <div class="max-w-md mx-auto mt-10 p-5 bg-white rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold text-center mb-4">Task Manager</h1>
+        <div class="flex gap-2 mb-4">
+            <input v-model="newTask" @keyup.enter="addTask" placeholder="Add a new task"
+                class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+            <button @click="addTask" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Add</button>
+        </div>
+        <ul>
+            <li v-for="(task, index) in tasks" :key="index" class="flex justify-between items-center p-2 border-b">
+                <span :class="{ 'line-through text-gray-400': task.completed }" @click="toggleTask(index)"
+                    class="cursor-pointer">
+                    {{ task.text }}
+                </span>
+                <button @click="removeTask(index)" class="text-red-500 hover:text-red-700">&times;</button>
+            </li>
+        </ul>
     </div>
-    <img class="absolute right-0 top-40" src="/images/main-bg-2.svg" alt="">
-    </main>
 </template>
 
-<script setup>
-
+<script>
+export default {
+    data() {
+        return {
+            newTask: "",
+            tasks: []
+        };
+    },
+    methods: {
+        addTask() {
+            if (this.newTask.trim() !== "") {
+                this.tasks.push({ text: this.newTask, completed: false });
+                this.newTask = "";
+            }
+        },
+        toggleTask(index) {
+            this.tasks[index].completed = !this.tasks[index].completed;
+        },
+        removeTask(index) {
+            this.tasks.splice(index, 1);
+        }
+    }
+};
 </script>
-
-<style lang="scss" scoped>
-
-</style>
